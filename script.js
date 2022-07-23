@@ -133,7 +133,7 @@ rock.addEventListener('click', (e) => {
 		//Array for computer choices
 		const choices = ['ROCK', 'PAPER', 'SCISSOR'];
 		//Randomly generated number from 0 - 2 for computer choices
-		const computerChoice = Math.floor(Math.abs(Math.random() * choices.length));
+		const computerChoice = Math.floor(Math.random() * choices.length);
 
 		//Change inner Div for 'yourChoice'
 		you.innerHTML = 'ROCK';
@@ -156,7 +156,7 @@ rock.addEventListener('click', (e) => {
 paper.addEventListener('click', (e) => {
 	if(yourScoreInteger < turns && computerScoreInteger < turns){
 		const choices = ['ROCK', 'PAPER', 'SCISSOR'];
-		const computerChoice = Math.floor(Math.abs(Math.random() * choices.length));
+		const computerChoice = Math.floor(Math.random() * choices.length);
 
 		you.innerHTML = 'PAPER';
 		let youChose = you.innerHTML = 'PAPER';
@@ -174,7 +174,7 @@ paper.addEventListener('click', (e) => {
 scissor.addEventListener('click', (e) => {
 	if(yourScoreInteger < turns && computerScoreInteger < turns){
 		const choices = ['ROCK', 'PAPER', 'SCISSOR'];
-		const computerChoice = Math.floor(Math.abs(Math.random() * choices.length));
+		const computerChoice = Math.floor(Math.random() * choices.length);
 
 		you.innerHTML = 'SCISSOR';
 		let youChose = you.innerHTML = 'SCISSOR';
@@ -209,3 +209,4 @@ reset.addEventListener('click', (e) => {
 	status.innerHTML = `Round ${round}`;
 
 })
+
