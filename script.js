@@ -153,7 +153,7 @@ scissor.addEventListener('click', (e) => {
 })
 
 
-//RESET all fields to continue playing
+//RESET all fields to play again
 reset.addEventListener('click', (e) => {
 	//set scores for 'you' and 'computer' back to zero
 	yourScoreInteger = 0;
