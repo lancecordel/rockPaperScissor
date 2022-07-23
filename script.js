@@ -33,17 +33,26 @@ let computerScoreInteger = 0;
 //Turns to win
 const turns = 5;
 
-//Initialize Turns left DOM to 'turns'
+//Initialize Turns left DOMs to value of 'turns'
 turnsLeftForPlayer.innerHTML = turns;
 turnsLeftForComputer.innerHTML = turns;
 
-//Increment score of winner
-const winner = (you, computer) => {
+//Keep track of each round.  Initialize to 0;
+let round = 0;
+
+//initialize 'status' to 'Round 0'
+status.innerHTML = `Round ${round}`;
+
+//Calculate score for each round
+const roundWinner = (you, computer) => {
 	if(you === 'ROCK' && computer === 'SCISSOR' || 
 		you === 'PAPER' && computer === 'ROCK' ||
 		you === 'SCISSOR' && computer === 'PAPER'){
 			//Increment your integer
 			yourScoreInteger += 1;
+
+			//increment round integer
+			round += 1;
 
 			//calculate turns left for player before win
 			let yourTurnsLeft = turns - yourScoreInteger;
@@ -53,14 +62,30 @@ const winner = (you, computer) => {
 
 			//Update turns left
 			turnsLeftForPlayer.innerHTML = yourTurnsLeft;
-			console.log('you win', yourTurnsLeft);
+
+			//Update status to current Round
+			status.innerHTML = `Round ${round} YOU!`;
+
+			//Console when round is lost
+			console.log(`You WIN round ${round}! ${yourTurnsLeft} turns left!`);
 	}
 	else if(you === computer){
-		console.log('draw');
+
+		//increment round integer
+		round += 1;
+
+		//Update status to current Round
+		status.innerHTML = `Round ${round} DRAW!`;
+
+		//Console log if Draw
+		console.log(`Round ${round} is a DRAW!`);
 	} 
 	else {
 		//Increment computer integer
 		computerScoreInteger += 1;
+
+		//Increment round integer
+		round += 1;
 
 		//calculate turns left for computer before win;
 		let computerTurnsLeft = turns - computerScoreInteger;
@@ -70,7 +95,12 @@ const winner = (you, computer) => {
 
 		//Set update turns left
 		turnsLeftForComputer.innerHTML = computerTurnsLeft;
-		console.log('you lose', computerTurnsLeft);
+
+		//Update status to current Round
+		status.innerHTML = `Round ${round} CPU!`;
+
+		//Console.log when round is lost
+		console.log(`You LOSE round ${round}!  CPU has ${computerTurnsLeft} turns left!`);
 	}
 }
 
@@ -79,13 +109,18 @@ const gameOver = () =>{
 	if(yourScoreInteger === turns){
 		//Set status innerHTML to 'WIN'
 		status.innerHTML = '<span style="color: green;">' + 'YOU WIN!' + '</span>';
-		console.log('GAME OVER YOU WIN')
+
+		//Console log when you WIN and game is OVER
+		console.log('YOU WIN....  PRESS RESET TO PLAY AGAIN!')
 		return;
 	}
+	
 	if(computerScoreInteger === turns){
 		//Set Staus innerHTML to 'LOSE'
 		status.innerHTML = '<span style="color: red;">' + 'YOU LOSE!' + '</span>';
-		console.log('GAME OVER YOU LOSE');
+
+		//Console.log when you LOSE and game is over
+		console.log('YOU LOSE....  PRESS RESET TO PLAY AGAIN');
 		return;
 	}
 }
@@ -109,7 +144,7 @@ rock.addEventListener('click', (e) => {
 		let computerChose = computer.innerHTML = choices[computerChoice];
 
 		//Call winner function and pass 'youChose' and 'computerChose' as arguments
-		winner(youChose, computerChose);
+		roundWinner(youChose, computerChose);
 		}
 
 	// Call Game over function to check who reached 'turns' first;
@@ -128,10 +163,10 @@ paper.addEventListener('click', (e) => {
 		computer.innerHTML = choices[computerChoice];
 		let computerChose = computer.innerHTML = choices[computerChoice];
 
-		winner(youChose, computerChose);
+		roundWinner(youChose, computerChose);
 	}
 
-	gameOver()
+	gameOver();
 })
 
 
@@ -146,7 +181,7 @@ scissor.addEventListener('click', (e) => {
 		computer.innerHTML = choices[computerChoice];
 		let computerChose = computer.innerHTML = choices[computerChoice];
 
-		winner(youChose, computerChose);
+		roundWinner(youChose, computerChose);
 	}
 
 	gameOver();
@@ -167,7 +202,10 @@ reset.addEventListener('click', (e) => {
 	turnsLeftForPlayer.innerHTML = turns;
 	turnsLeftForComputer.innerHTML = turns;
 
-	//reset status
-	status.innerHTML = 'playing';
+	//reset round to 0
+	round = 0;
+
+	//Assign updated round to status
+	status.innerHTML = `Round ${round}`;
 
 })
