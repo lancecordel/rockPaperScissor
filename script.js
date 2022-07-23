@@ -33,9 +33,7 @@ let computerScoreInteger = 0;
 //Turns to win
 const turns = 5;
 
-let turnsLeft = turns;
-
-//turns left
+//Initialize Turns left DOM to 'turns'
 turnsLeftForPlayer.innerHTML = turns;
 turnsLeftForComputer.innerHTML = turns;
 
@@ -49,9 +47,6 @@ const winner = (you, computer) => {
 
 			//calculate turns left for player before win
 			let yourTurnsLeft = turns - yourScoreInteger;
-
-			//Decrement turnsLeft
-			turnsLeft--;
 		
 			//Assign integer to 'yourScore' innerHTML value
 			yourScore.innerHTML = yourScoreInteger;
@@ -60,20 +55,15 @@ const winner = (you, computer) => {
 			turnsLeftForPlayer.innerHTML = yourTurnsLeft;
 			console.log('you win', yourTurnsLeft);
 	}
-
 	else if(you === computer){
 		console.log('draw');
 	} 
-	
 	else {
 		//Increment computer integer
 		computerScoreInteger += 1;
 
 		//calculate turns left for computer before win;
 		let computerTurnsLeft = turns - computerScoreInteger;
-
-		//Decrement turnsLeft
-		turnsLeft--;
 
 		//Assign integer to 'computerScore' innerHTML value
 		computerScore.innerHTML = computerScoreInteger;
