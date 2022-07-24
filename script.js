@@ -168,7 +168,7 @@ paper.addEventListener('click', (e) => {
 		//Randomly generated number from 0 - 2 for computer choices
 		const computerChoice = Math.floor(Math.random() * choices.length);
 
-		//*NEW assign image to innerHTML
+		//assign image to innerHTML
 		you.innerHTML = 'PAPER';
 
 		//Create another variable to pass as an argument in the 'winner' function. 
