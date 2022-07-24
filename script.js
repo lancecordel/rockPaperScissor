@@ -131,22 +131,22 @@ rock.addEventListener('click', (e) => {
 	// Check if max 'turns' have been reached
 	if(yourScoreInteger < turns && computerScoreInteger < turns){
 
-		//*NEW Array of objects for computer choices
+		//Array of objects for computer choices
 		const choices = ['ROCK', 'PAPER', 'SCISSOR'];
 		
 		//Randomly generated number from 0 - 2 for computer choices
 		const computerChoice = Math.floor(Math.random() * choices.length);
 
-		//*NEW assign image to innerHTML
+		//assign image to innerHTML
 		you.innerHTML = 'ROCK';
 
-		//*NEW Create another variable to pass as an argument in the 'winner' function. 
+		//Create another variable to pass as an argument in the 'winner' function. 
 		let youChose = 'ROCK';
 
-		//Assign 'rockImage.src' value to produce image
+		//Assign  value to produce image
 		computer.innerHTML = choices[computerChoice];
 
-		//Assign 'rockImage.id' to pass as string argument in 'roundWinner' function
+		//Assign  to pass as string argument in 'roundWinner' function
 		let computerChose = choices[computerChoice];
 
 		//Call winner function and pass 'youChose' and 'computerChose' as arguments
@@ -162,7 +162,7 @@ rock.addEventListener('click', (e) => {
 paper.addEventListener('click', (e) => {
 	if(yourScoreInteger < turns && computerScoreInteger < turns){
 
-		//*NEW Array of objects for computer choices
+		//Array of objects for computer choices
 		const choices = ['ROCK', 'PAPER', 'SCISSOR'];
 		
 		//Randomly generated number from 0 - 2 for computer choices
@@ -171,13 +171,13 @@ paper.addEventListener('click', (e) => {
 		//*NEW assign image to innerHTML
 		you.innerHTML = 'PAPER';
 
-		//*NEW Create another variable to pass as an argument in the 'winner' function. 
+		//Create another variable to pass as an argument in the 'winner' function. 
 		let youChose = 'PAPER';
 
-		//Assign 'rockImage.src' value to produce image
+		//Assign  value to produce image
 		computer.innerHTML = choices[computerChoice];
 
-		//Assign 'rockImage.id' to pass as string argument in 'roundWinner' function
+		//Assign  to pass as string argument in 'roundWinner' function
 		let computerChose = choices[computerChoice];
 
 		//Call winner function and pass 'youChose' and 'computerChose' as arguments
@@ -192,22 +192,22 @@ paper.addEventListener('click', (e) => {
 scissor.addEventListener('click', (e) => {
 	if(yourScoreInteger < turns && computerScoreInteger < turns){
 
-		//*NEW Array of objects for computer choices
+		//Array of objects for computer choices
 		const choices = ['ROCK', 'PAPER', 'SCISSOR'];
 		
 		//Randomly generated number from 0 - 2 for computer choices
 		const computerChoice = Math.floor(Math.random() * choices.length);
 
-		//*NEW assign image to innerHTML
+		//assign image to innerHTML
 		you.innerHTML = 'SCISSOR';
 
-		//*NEW Create another variable to pass as an argument in the 'winner' function. 
+		//Create another variable to pass as an argument in the 'winner' function. 
 		let youChose = 'SCISSOR';
 
-		//Assign 'rockImage.src' value to produce image
+		//Assign  value to produce image
 		computer.innerHTML = choices[computerChoice];
 
-		//Assign 'rockImage.id' to pass as string argument in 'roundWinner' function
+		//Assign  to pass as string argument in 'roundWinner' function
 		let computerChose = choices[computerChoice];
 
 		//Call winner function and pass 'youChose' and 'computerChose' as arguments
